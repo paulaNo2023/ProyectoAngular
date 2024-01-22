@@ -1,0 +1,56 @@
+<mat-drawer-container class="dashboard-container" autosize>
+
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Conoce mas de tu plataforma</p>
+    @if (showFiller) {
+    <p>Estudiantes</p>
+    <p>Cursos</p>
+    <p> Conoce mas</p>
+    }
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      MENU    </button>
+
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+
+    <mat-toolbar  color="primary">
+      <button
+        (click)="drawer.toggle()"
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon class="menu">menu</mat-icon>
+      </button>
+      <h1>Universidad Coder</h1>
+  
+      <!--<button
+        mat-icon-button
+        class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon"
+      >
+        <mat-icon>favorite</mat-icon>
+      </button> -->
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with share icon"
+      >
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+      <mat-icon>assignment_ind</mat-icon>
+    
+
+      </button>
+    </mat-toolbar>
+
+    <div class="p-3">
+
+      <app-users></app-users>
+    
+   
+
+    </div>
+  
+  </div>
+ 
+</mat-drawer-container>
