@@ -15,9 +15,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { FuenteDirective } from '../directives/fuente.directive';
 import { NombrePipe } from '../pipes/nombre.pipe';
+import { UsersService } from '../../../../core/services/users.service';
+import { UsersMockService } from '../../../../core/services/user-mock.service';
+import { RxjsUsersComponent } from './servicios/rxjs-users.component';
+import { HomeModule } from '../home/home.module';
+import { RouterModule } from '@angular/router';
+
+
 
 @NgModule({
-  declarations: [UsersComponent, UserFormComponent, FuenteDirective, NombrePipe],
+  declarations: [UsersComponent, UserFormComponent, FuenteDirective, NombrePipe ],
   imports: [
     CommonModule,
     MatTableModule,
@@ -27,9 +34,19 @@ import { NombrePipe } from '../pipes/nombre.pipe';
     MatButtonModule,
     ReactiveFormsModule,
     MatIconModule,
+  
+
+    
+    
   ],
   exports: [UsersComponent],
-  providers:  [NombrePipe],
+  providers:  [NombrePipe,
+    {
+      provide: UsersService,
+      useClass : UsersMockService
+    },
+  
+  ],
 })
 export class UsersModule {
 

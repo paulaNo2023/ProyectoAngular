@@ -7,7 +7,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { UsersModule } from './pages/users/estudiante.module';
 import { CategoriesModule } from './pages/categories/categories.module';
-import { CardsModule } from './pages/cards/cards.module';
+import { RouterModule } from '@angular/router';
+import {MatListModule} from '@angular/material/list';
+import { CursosModule } from './pages/cursos/cursos.module';
+import { UsersComponent } from './pages/users/estudiante.component';
+
+
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -19,7 +24,20 @@ import { CardsModule } from './pages/cards/cards.module';
     MatIconModule,
     UsersModule,
     CategoriesModule,
-    CardsModule,
+    RouterModule,
+    UsersModule,
+    MatListModule,
+    CursosModule,
+  
+
+
+  
+
+  
+
+    
+   
+    
     
 
 
