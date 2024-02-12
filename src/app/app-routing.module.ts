@@ -7,20 +7,29 @@ import { HomeComponent } from './layouts/dashboard/pages/home/home.component';
 import { NotFoundComponent } from './layouts/404/not-found.component';
 import { CursosComponent } from './layouts/dashboard/pages/cursos/cursos.component';
 
+
 const routes: Routes = [{
   path: 'dashboard', component: DashboardComponent,
   children: [
     {
-      path: 'users', component : UsersComponent,
+      path: 'users',
+      loadChildren:() => 
+      import('./layouts/dashboard/pages/users/estudiante.module').then((m)=> m.UsersModule),
     },
     {
-      path: 'home', component : HomeComponent,
+      path: 'home', 
+      loadChildren:() => 
+      import('./layouts/dashboard/pages/home/home.module').then((m)=> m.HomeModule), 
     },
     {
-      path: 'login', component : LoginComponent,
+      path: 'login', 
+      loadChildren:() => 
+      import('./layouts/auth/auth.module').then((m)=> m.AuthModule),
     },
     {
-      path: 'cursos', component: CursosComponent,
+      path: 'cursos',
+      loadChildren:() => 
+      import('./layouts/dashboard/pages/cursos/cursos.module').then((m)=> m.CursosModule), 
     
     },
     {
