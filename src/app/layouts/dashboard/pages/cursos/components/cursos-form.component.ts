@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+/*import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Cursos } from '../model/index';
 
@@ -35,3 +35,4 @@ export class CursosFormComponent {
   }
 
 }
+*/

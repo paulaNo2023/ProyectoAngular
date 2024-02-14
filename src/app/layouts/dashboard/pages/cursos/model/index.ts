@@ -1,4 +1,4 @@
-export interface Cursos {
+/*export interface Cursos {
     id: number;
     firstName: string;
     lastName: string;
@@ -9,4 +9,4 @@ export interface Cursos {
     role: string;
     editar : '';
     eliminar: '';
-  }
+  }*/

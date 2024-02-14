@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+/*import { Component, OnInit, ViewChild } from '@angular/core';
 import { Cursos } from './model';
 import { MatTable } from '@angular/material/table';
 import { UsersService } from '../../../../core/services/users.service';
@@ -46,6 +46,6 @@ export class CursosComponent {
   };
   
   
-
+*/
 
 

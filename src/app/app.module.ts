@@ -12,10 +12,11 @@ import { HomeComponent } from './layouts/dashboard/pages/home/home.component';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { LoginComponent } from './layouts/auth/login.component';
 import { NotFoundComponent } from './layouts/404/not-found.component';
-import { CursosComponent } from './layouts/dashboard/pages/cursos/cursos.component';
+//import { CursosComponent } from './layouts/dashboard/pages/cursos/cursos.component';
 import { Routes } from '@angular/router';
 import { Estudiante } from './layouts/dashboard/pages/users/models/index';
 import { UserFormComponent } from './layouts/dashboard/pages/users/components/user-form/estudiante-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -32,6 +33,7 @@ registerLocaleData(esAR);
     AppRoutingModule,
     BrowserAnimationsModule,
     DashboardModule,
+    HttpClientModule
    
 
   ],

@@ -9,9 +9,8 @@ import { UsersModule } from './pages/users/estudiante.module';
 import { CategoriesModule } from './pages/categories/categories.module';
 import { RouterModule } from '@angular/router';
 import {MatListModule} from '@angular/material/list';
-
 import { UsersComponent } from './pages/users/estudiante.component';
-import { CursosModule } from './pages/cursos/cursos.module';
+//import { CursosModule } from './pages/cursos/cursos.module';
 
 
 
@@ -24,12 +23,12 @@ import { CursosModule } from './pages/cursos/cursos.module';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    UsersModule,
+   UsersModule,
     CategoriesModule,
     RouterModule,
     UsersModule,
     MatListModule,
-    CursosModule,
+ //   CursosModule,
     
   
 

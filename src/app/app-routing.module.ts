@@ -5,7 +5,7 @@ import { LoginComponent } from './layouts/auth/login.component';
 import { UsersComponent } from './layouts/dashboard/pages/users/estudiante.component';
 import { HomeComponent } from './layouts/dashboard/pages/home/home.component';
 import { NotFoundComponent } from './layouts/404/not-found.component';
-import { CursosComponent } from './layouts/dashboard/pages/cursos/cursos.component';
+//import { CursosComponent } from './layouts/dashboard/pages/cursos/cursos.component';
 
 
 const routes: Routes = [{
@@ -26,12 +26,12 @@ const routes: Routes = [{
       loadChildren:() => 
       import('./layouts/auth/auth.module').then((m)=> m.AuthModule),
     },
-    {
+    /*{
       path: 'cursos',
       loadChildren:() => 
       import('./layouts/dashboard/pages/cursos/cursos.module').then((m)=> m.CursosModule), 
     
-    },
+    },*/
     {
       path: '**',
       redirectTo: '/404'
@@ -47,6 +47,9 @@ const routes: Routes = [{
   path: '404', component: NotFoundComponent,
 
 },
+{
+  path: 'users', component : UsersComponent,
+}
 
 
 

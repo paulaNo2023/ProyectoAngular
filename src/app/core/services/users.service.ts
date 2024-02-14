@@ -2,8 +2,9 @@ import { Inject, Injectable } from '@angular/core';
 import { Estudiante } from '../../layouts/dashboard/pages/users/models';
 import { DataSource } from '@angular/cdk/collections';
 import { debounce, delay, of, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
-const USER_DB: Estudiante[] = [{
+const USER_DB: Estudiante[] = [/*{
   id: 1,
   firstName: 'Maria Paula',
   lastName: 'Sanabria',
@@ -62,12 +63,12 @@ const USER_DB: Estudiante[] = [{
   role: 'ESTUDIANTE',
   editar: '',
   eliminar: '',
-},
+},*/
 ];
 
 @Injectable({providedIn: 'root'})
 export class UsersService {
-  constructor() { 
+  constructor( private httClient: HttpClient ) { 
   }
 
   getUsers(): Observable<any[]> {
