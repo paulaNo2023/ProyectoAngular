@@ -10,6 +10,7 @@ import { CategoriesModule } from './pages/categories/categories.module';
 import { RouterModule } from '@angular/router';
 import {MatListModule} from '@angular/material/list';
 import { UsersComponent } from './pages/users/estudiante.component';
+import { DashboardRoutingModule } from './dashboard-routing.module';
 //import { CursosModule } from './pages/cursos/cursos.module';
 
 
@@ -28,7 +29,7 @@ import { UsersComponent } from './pages/users/estudiante.component';
     RouterModule,
     UsersModule,
     MatListModule,
- //   CursosModule,
+    DashboardRoutingModule
     
   
 

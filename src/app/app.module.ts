@@ -27,12 +27,11 @@ registerLocaleData(es);
 registerLocaleData(esAR);
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, NotFoundComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    DashboardModule,
     HttpClientModule
    
 

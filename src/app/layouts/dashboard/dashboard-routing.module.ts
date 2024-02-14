@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardModule } from './dashboard.module';
 import { DashboardComponent } from './dashboard.component';
+import { CursosModule } from './pages/cursos/cursos.module';
 
 
 @NgModule({
   imports: [RouterModule.forChild([
     {
-      path: '/dashboard',
-      component: DashboardComponent,
+      path: '',
       children: [
         {
           path: 'users',
@@ -20,20 +20,16 @@ import { DashboardComponent } from './dashboard.component';
           loadChildren:() => 
           import('./pages/home/home.module').then((m)=> m.HomeModule), 
         },
-        /*{
-          path: 'login', 
-          loadChildren:() => 
-          import('').then((m)=> m.AuthModule),
-        },
         {
           path: 'cursos',
-          loadChildren:() => 
-          import('./layouts/dashboard/pages/cursos/cursos.module').then((m)=> m.CursosModule), 
-        
-        },*/
-        {
-          path: '**',
-          redirectTo: '/404'
+          loadChildren:()=>
+          import('./pages/cursos/cursos.module').then((m)=> m.CursosModule)
+
+        },
+         {
+          path: '',
+          redirectTo: 'home',
+          pathMatch: 'full'
         },
 
       ]

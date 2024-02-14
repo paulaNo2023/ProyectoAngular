@@ -20,6 +20,7 @@ import { UsersMockService } from '../../../../core/services/user-mock.service';
 import { RxjsUsersComponent } from './servicios/rxjs-users.component';
 import { HomeModule } from '../home/home.module';
 import { RouterModule } from '@angular/router';
+import { UsersRoutingModule } from './users-routing.module';
 
 
 
@@ -34,6 +35,7 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     ReactiveFormsModule,
     MatIconModule,
+    UsersRoutingModule
   
 
     

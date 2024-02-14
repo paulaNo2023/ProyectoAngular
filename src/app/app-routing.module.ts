@@ -6,54 +6,32 @@ import { UsersComponent } from './layouts/dashboard/pages/users/estudiante.compo
 import { HomeComponent } from './layouts/dashboard/pages/home/home.component';
 import { NotFoundComponent } from './layouts/404/not-found.component';
 //import { CursosComponent } from './layouts/dashboard/pages/cursos/cursos.component';
+import { AuthModule } from './layouts/auth/auth.module';
 
 
-const routes: Routes = [{
-  path: 'dashboard', component: DashboardComponent,
-  children: [
-    {
-      path: 'users',
-      loadChildren:() => 
-      import('./layouts/dashboard/pages/users/estudiante.module').then((m)=> m.UsersModule),
+const routes: Routes = [
+{
+path: 'login',
+loadChildren:()=>
+import ('./layouts/auth/auth.module').then((m)=> m.AuthModule),
+},
+{
+  path: 'dashboard',component: DashboardComponent,
+  loadChildren:()=>
+  import ('./layouts/dashboard/dashboard.module').then((m)=> m.DashboardModule),
+  },
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
     },
     {
-      path: 'home', 
-      loadChildren:() => 
-      import('./layouts/dashboard/pages/home/home.module').then((m)=> m.HomeModule), 
+      path:'404', component: NotFoundComponent,
     },
-    {
-      path: 'login', 
-      loadChildren:() => 
-      import('./layouts/auth/auth.module').then((m)=> m.AuthModule),
-    },
-    /*{
-      path: 'cursos',
-      loadChildren:() => 
-      import('./layouts/dashboard/pages/cursos/cursos.module').then((m)=> m.CursosModule), 
-    
-    },*/
     {
       path: '**',
-      redirectTo: '/404'
+      redirectTo:'404'
     },
-
-    
-  ]
-},
-{
-  path: 'login', component: LoginComponent,
-},
-{
-  path: '404', component: NotFoundComponent,
-
-},
-{
-  path: 'users', component : UsersComponent,
-}
-
-
-
-
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-/*import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Cursos } from './model';
 import { MatTable } from '@angular/material/table';
 import { UsersService } from '../../../../core/services/users.service';
@@ -10,7 +10,7 @@ import { delay, of } from 'rxjs';
   styleUrl: './cursos.component.scss',
 })
 export class CursosComponent {
-  displayedColumns: string[] = ['id', 'fullName', 'email', 'curso','profesor', 'role', 'editar', 'eliminar' ];
+  displayedColumns: string[] = ['id', 'curso', 'profesor', 'semestre','creditos', 'email', 'editar', 'eliminar' ];
   
   dataSource: Cursos[]= [];
 
@@ -46,6 +46,6 @@ export class CursosComponent {
   };
   
   
-*/
+
 
 

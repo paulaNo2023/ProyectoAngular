@@ -1,4 +1,4 @@
-<!--<h1>ESTUDIANTES</h1>
+<h1>CURSOS</h1>
 <div class="mb-3">
   <app-cursos-form (cursosSubmitted)="onCursosSubmitted($event)"></app-cursos-form>
 </div>
@@ -10,28 +10,14 @@
     <td mat-cell *matCellDef="let cursos">{{ cursos.id }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="fullName">
-    <th mat-header-cell *matHeaderCellDef >Nombre completo</th>
+  <ng-container matColumnDef="curso">
+    <th mat-header-cell *matHeaderCellDef >Cursos</th>
     <td mat-cell *matCellDef="let cursos">
-      {{ cursos.firstName + " " + cursos.lastName  }}
+      {{ cursos.cursos}}
     </td>
   </ng-container>
 
  
-  <ng-container matColumnDef="email">
-     <th mat-header-cell *matHeaderCellDef >Correo</th>
-    <td mat-cell *matCellDef="let cursos">
-      {{ cursos.email }}
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="curso">
-    <th mat-header-cell *matHeaderCellDef >Curso</th>
-    <td mat-cell *matCellDef="let cursos">
-      {{ cursos.curso }}
-    </td>
-  </ng-container>
-
   <ng-container matColumnDef="profesor">
      <th mat-header-cell *matHeaderCellDef >Profesor</th>
     <td mat-cell *matCellDef="let cursos">
@@ -39,10 +25,24 @@
     </td>
   </ng-container>
 
-  <ng-container matColumnDef="role">
-    <th mat-header-cell *matHeaderCellDef >Rol</th>
+  <ng-container matColumnDef="semestre">
+    <th mat-header-cell *matHeaderCellDef >Semestre</th>
     <td mat-cell *matCellDef="let cursos">
-      {{ cursos.role }}
+      {{ cursos.semestre }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="creditos">
+     <th mat-header-cell *matHeaderCellDef >Creditos</th>
+    <td mat-cell *matCellDef="let cursos">
+      {{ cursos.creditos }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef >Correo</th>
+    <td mat-cell *matCellDef="let cursos">
+      {{ cursos.email}}
     </td>
   </ng-container>
 
@@ -66,4 +66,4 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
--->
+

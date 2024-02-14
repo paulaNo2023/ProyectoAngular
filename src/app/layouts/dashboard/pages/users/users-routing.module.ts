@@ -7,7 +7,7 @@ const routes: Routes = [];
 @NgModule({
   imports: [RouterModule.forChild([
     {
-      path: 'dashboard/users',
+      path: '',
       component: UsersComponent
     },
   ])],

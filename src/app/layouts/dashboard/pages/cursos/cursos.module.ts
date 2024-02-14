@@ -1,4 +1,4 @@
-/*import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatTableModule } from '@angular/material/table';
@@ -20,6 +20,7 @@ import { HomeModule } from '../home/home.module';
 import { RouterModule } from '@angular/router';
 import { Cursos } from './model/index';
 import { CursosComponent } from './cursos.component';
+import { CursosRoutingModule } from './cursos-routing.module';
 
 
 
@@ -34,6 +35,7 @@ import { CursosComponent } from './cursos.component';
     MatButtonModule,
     ReactiveFormsModule,
     MatIconModule,
+    CursosRoutingModule
   
 
     
@@ -45,4 +47,4 @@ import { CursosComponent } from './cursos.component';
 })
 export class CursosModule {
 
-}*/
+}
