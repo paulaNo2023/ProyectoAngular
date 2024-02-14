@@ -4,75 +4,16 @@ import { DataSource } from '@angular/cdk/collections';
 import { debounce, delay, of, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-const USER_DB: Estudiante[] = [/*{
-  id: 1,
-  firstName: 'Maria Paula',
-  lastName: 'Sanabria',
-  email: 'paulasanabria@hotmai.com',
-  curso: 'backend',
-  profesor:'carlos',
-  password: '123456',
-  role: 'ESTUDIANTE',
-  editar: '',
-  eliminar: '',
-},
-{
-  id: 2,
-  firstName: 'Carlos',
-  lastName: 'Perez',
-  email: 'carlos23@hotmail.com',
-  curso: 'Amgular',
-  profesor:'Cristian',
-  password: '123456',
-  role: 'ADMIN',
-  editar: '',
-  eliminar: '',
-},
-{
-  id: 3,
-  firstName: 'Camila',
-  lastName: 'Naranjo',
-  email: 'cami@hotmail.com',
-  curso: 'Frontend',
-  profesor:'Josue',
-  password: '123456',
-  role: 'ESTUDIANTE',
-  editar: '',
-  eliminar: '',
-},
-{
-  id: 4,
-  firstName: 'Noah',
-  lastName: 'Sanchez',
-  email: 'Nsanzhez@hotmail.com',
-  curso: 'Amgular',
-  profesor:'Cristian',
-  password: '123456',
-  role: 'ESTUDIANTE',
-  editar: '',
-  eliminar: '',
-},
-{
-  id: 5,
-  firstName: 'Ricardo',
-  lastName: 'Daza',
-  email: 'Richard@hotmail.com',
-  curso: 'Backend',
-  profesor:'Josue',
-  password: '123456',
-  role: 'ESTUDIANTE',
-  editar: '',
-  eliminar: '',
-},*/
-];
+const USER_DB: Estudiante[] = [];
 
 @Injectable({providedIn: 'root'})
 export class UsersService {
   constructor( private httClient: HttpClient ) { 
   }
 
-  getUsers(): Observable<any[]> {
-    return of(USER_DB).pipe(delay(2000))
+  getUsers() {
+   // return of(USER_DB).pipe(delay(2000))
+   return this.httClient.get<Estudiante[]>('http://localhost:3000/Users')
   }
 
 }

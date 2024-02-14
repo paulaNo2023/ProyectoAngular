@@ -9,4 +9,5 @@ export interface Estudiante {
   role: string;
   editar : '';
   eliminar: '';
+  token: string;
 }

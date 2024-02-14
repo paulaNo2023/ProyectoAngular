@@ -17,6 +17,7 @@ import { Routes } from '@angular/router';
 import { Estudiante } from './layouts/dashboard/pages/users/models/index';
 import { UserFormComponent } from './layouts/dashboard/pages/users/components/user-form/estudiante-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 
@@ -32,7 +33,9 @@ registerLocaleData(esAR);
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+  
+    
    
 
   ],
