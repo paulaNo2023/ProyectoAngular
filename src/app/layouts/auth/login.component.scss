@@ -1,8 +1,12 @@
 @use "@angular/material" as mat;
 .login-container {
     height: 100vh;
-    background-color: rgb(76, 76, 177);
+    background-color: aquamarine;
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-items: center;
+  }
+  .card-img-top{
+    justify-items: center;
   }

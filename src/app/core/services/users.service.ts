@@ -13,7 +13,7 @@ export class UsersService {
 
   getUsers() {
    // return of(USER_DB).pipe(delay(2000))
-   return this.httClient.get<Estudiante[]>('http://localhost:3000/Users')
+   return this.httClient.get<Estudiante[]>('http://localhost:3000/Estudiante')
   }
 
 }

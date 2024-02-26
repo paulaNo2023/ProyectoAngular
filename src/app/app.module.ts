@@ -1,6 +1,5 @@
 import { Component, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +17,8 @@ import { Estudiante } from './layouts/dashboard/pages/users/models/index';
 import { UserFormComponent } from './layouts/dashboard/pages/users/components/user-form/estudiante-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { FormsModule } from '@angular/forms';
+import { AuthModule } from './layouts/auth/auth.module';
 
 
 
@@ -34,6 +35,8 @@ registerLocaleData(esAR);
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
+    AuthModule
   
     
    

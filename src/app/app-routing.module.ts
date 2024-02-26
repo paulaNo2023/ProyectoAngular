@@ -19,6 +19,7 @@ import { MY_USER_TOKEN } from './core/injection-tokens';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
 
 
 const routes: Routes = [
