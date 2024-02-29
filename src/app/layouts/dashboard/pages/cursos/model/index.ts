@@ -1,3 +1,4 @@
+import { MY_USER_TOKEN } from '../../../../../core/injection-tokens/index';
 export interface Cursos {
     id: number;
     curso: string;
@@ -7,4 +8,5 @@ export interface Cursos {
     email: string;
     editar : '';
     eliminar: '';
+    token: string;
   }

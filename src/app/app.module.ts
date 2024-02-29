@@ -13,12 +13,13 @@ import { LoginComponent } from './layouts/auth/login.component';
 import { NotFoundComponent } from './layouts/404/not-found.component';
 //import { CursosComponent } from './layouts/dashboard/pages/cursos/cursos.component';
 import { Routes } from '@angular/router';
-import { Estudiante } from './layouts/dashboard/pages/users/models/index';
+import { Users } from './layouts/dashboard/pages/users/models/index';
 import { UserFormComponent } from './layouts/dashboard/pages/users/components/user-form/estudiante-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FormsModule } from '@angular/forms';
 import { AuthModule } from './layouts/auth/auth.module';
+import { MY_USER_TOKEN } from './core/injection-tokens';
 
 
 
@@ -55,7 +56,14 @@ registerLocaleData(esAR);
       appearance: 'outline',
         
       },
-    }
+    },
+    {    provide: MY_USER_TOKEN,
+      useValue: 'ldsjdm348342kjewkjksfdmsakjdsad',
+    },
+    {
+      provide: 'API_URL',
+      useValue: 'http://localhost:3000/',
+    },
   ],
   bootstrap: [AppComponent],
 })

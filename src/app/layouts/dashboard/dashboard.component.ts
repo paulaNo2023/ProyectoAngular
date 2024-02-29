@@ -14,8 +14,6 @@ export class DashboardComponent {
   }
 
   logout(): void{
-   // this.router.navigate(['users'], {relativeTo: this.route})
-   //localStorage.removeItem('access-token'); 
    this.authService.logout();
   }
 }

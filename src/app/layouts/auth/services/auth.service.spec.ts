@@ -1,10 +1,7 @@
 import { TestBed } from '@angular/core/testing';
-import {
-  HttpClientTestingModule,
-  HttpTestingController,
-} from '@angular/common/http/testing';
+import {HttpClientTestingModule,HttpTestingController} from '@angular/common/http/testing';
 import { AuthService } from './auth.service';
-import { Estudiante } from '../../dashboard/pages/users/models';
+import { Users } from '../../dashboard/pages/users/models';
 
 describe('Pruebas de AuthService', () => {
   let authService: AuthService;
@@ -25,7 +22,7 @@ describe('Pruebas de AuthService', () => {
   });
 
   it('Al llamar login() debe establecer un authUser', () => {
-    const MOCK_RESPONSE: Estudiante[] = [
+    const MOCK_RESPONSE: Users[] = [
       {
         id: 1,
         firstName: "paula",
@@ -33,7 +30,7 @@ describe('Pruebas de AuthService', () => {
         email: "paula@gmail.com",
         curso: "backend",
         profesor: "Josue",
-        password: "HolaMundo",
+        password: "123456",
         role: "admin",
         editar : '',
         eliminar: '',
@@ -41,20 +38,18 @@ describe('Pruebas de AuthService', () => {
       },
     ];
 
-    // Llamamos al login
+  
     authService
       .login({ email: 'mock@mail.com', password: 'password' })
       .subscribe({
         next: () => {
-          // Verificamos que el login establezca correctamente el usuario
           expect(authService.authUser).toEqual(MOCK_RESPONSE[0]);
         },
       });
 
-    // Sobre escribimos la request por una request falsa
     httpController
       .expectOne({
-        url: 'http://localhost:3000/users?email=mock@mail.com&password=password',
+        url: 'http://localhost:3000/users?email=paula@gmail.com&password=123456',
         method: 'GET',
       })
       .flush(MOCK_RESPONSE);

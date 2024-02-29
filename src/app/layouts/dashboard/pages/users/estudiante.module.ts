@@ -24,6 +24,7 @@ import { UsersRoutingModule } from './users-routing.module';
 
 
 
+
 @NgModule({
   declarations: [UsersComponent, UserFormComponent, FuenteDirective, NombrePipe ],
   imports: [
@@ -42,6 +43,7 @@ import { UsersRoutingModule } from './users-routing.module';
     
   ],
   exports: [UsersComponent],
+
   providers:  [NombrePipe,
     {
       provide: UsersService,

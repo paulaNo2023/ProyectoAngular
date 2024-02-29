@@ -28,7 +28,7 @@ import { CursosModule } from './pages/cursos/cursos.module';
         },
          {
           path: '',
-          redirectTo: 'home',
+          redirectTo: 'login',
           pathMatch: 'full'
         },
 

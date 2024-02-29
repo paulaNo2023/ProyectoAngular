@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Estudiante } from '../../dashboard/pages/users/models';
+import { Users } from '../../dashboard/pages/users/models';
 import { Router } from '@angular/router';
 import { Observable, delay, finalize, map, of, tap } from 'rxjs';
 import { AlertsService } from '../../../core/services/alerts.service';
@@ -23,7 +23,7 @@ const MOCK_USER = {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  authUser: Estudiante | null = null;
+  authUser: Users | null = null;
 
   constructor(
     private alertsService: AlertsService,
@@ -33,14 +33,14 @@ export class AuthService {
     private httpClient: HttpClient
   ) {}
 
-  private setAuthUser(user: Estudiante): void {
+  private setAuthUser(user: Users): void {
     this.authUser = user;
     localStorage.setItem('token', user.token);
   }
 
-  login(data: LoginData): Observable<Estudiante[]> {
+  login(data: LoginData): Observable<Users[]> {
     return this.httpClient
-      .get<Estudiante[]>(
+      .get<Users[]>(
         `${environment.apiURL}/users?email=${data.email}&password=${data.password}`
       )
       .pipe(
@@ -63,7 +63,7 @@ export class AuthService {
 
   verifyToken() {
     return this.httpClient
-      .get<Estudiante[]>(
+      .get<Users[]>(
         `${environment.apiURL}/users?token=${localStorage.getItem('token')}`
       )
       .pipe(

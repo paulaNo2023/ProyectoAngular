@@ -1,9 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Estudiante } from './models';
+import { Users } from './models';
 import { MatTable } from '@angular/material/table';
 import { UsersService } from '../../../../core/services/users.service';
 import { LoadingServiceService } from '../../../../core/services/loading-service';
 import { delay, of } from 'rxjs';
+import { PageEvent } from '@angular/material/paginator';
+import { ActivatedRoute } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-users',
   templateUrl: './estudiante.component.html',
@@ -13,12 +16,19 @@ import { delay, of } from 'rxjs';
 export class UsersComponent implements OnInit {
   displayedColumns: string[] = ['id', 'fullName', 'email', 'curso','profesor', 'role', 'editar', 'eliminar' ];
   
-  dataSource: Estudiante[]= [];
+  dataSource: Users[]= [];
+  totalItems = 0;
+  pageSize = 5;
+  currentPage = 1;
 
-  constructor(private usersService: UsersService, private loadingService: LoadingServiceService){}
+
+  constructor(private usersService: UsersService, 
+    private loadingService: LoadingServiceService,
+    private route: ActivatedRoute
+    ){}
 
 
-  onUserSubmitted(ev: Estudiante): void {
+  onUserSubmitted(ev: Users): void {
     // this.dataSource.push(ev);
     this.dataSource = [...this.dataSource, { ...ev, id: new Date().getTime() }];
 
@@ -31,7 +41,7 @@ export class UsersComponent implements OnInit {
   }
   
    
-  @ViewChild(MatTable) Tabla1!: MatTable<Estudiante>;
+  @ViewChild(MatTable) Tabla1!: MatTable<Users>;
   botonEliminar(id:number){  
     if(confirm("Quiere borrar este registro?")){
       this.dataSource.splice(id,1);
