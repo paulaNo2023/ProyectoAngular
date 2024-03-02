@@ -1,4 +1,4 @@
-import { Component, LOCALE_ID, NgModule } from '@angular/core';
+import { Component, LOCALE_ID, NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,14 +20,14 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { FormsModule } from '@angular/forms';
 import { AuthModule } from './layouts/auth/auth.module';
 import { MY_USER_TOKEN } from './core/injection-tokens';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { appReducer } from './store/app.reducer';
 
 
 
 
 
-
-registerLocaleData(es);
-registerLocaleData(esAR);
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,7 +37,9 @@ registerLocaleData(esAR);
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    AuthModule
+    AuthModule,
+    StoreModule.forRoot(appReducer, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   
     
    
@@ -62,7 +64,7 @@ registerLocaleData(esAR);
     },
     {
       provide: 'API_URL',
-      useValue: 'http://localhost:3000/',
+      useValue: 'http://localhost:4200/',
     },
   ],
   bootstrap: [AppComponent],

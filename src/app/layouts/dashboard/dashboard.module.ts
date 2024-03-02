@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import {MatListModule} from '@angular/material/list';
 import { UsersComponent } from './pages/users/estudiante.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { SharedModule } from '../../shared/shared.module';
 //import { CursosModule } from './pages/cursos/cursos.module';
 
 
@@ -19,6 +20,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 @NgModule({
   declarations: [DashboardComponent],
   imports: [
+
     CommonModule,
     MatSidenavModule,
     MatButtonModule,

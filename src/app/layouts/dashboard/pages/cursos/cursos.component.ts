@@ -4,6 +4,7 @@ import { MatTable } from '@angular/material/table';
 import { UsersService } from '../../../../core/services/users.service';
 import { LoadingServiceService } from '../../../../core/services/loading-service';
 import { delay, of } from 'rxjs';
+import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-cursos',
   templateUrl: './cursos.component.html',
@@ -13,6 +14,10 @@ export class CursosComponent {
   displayedColumns: string[] = ['id', 'curso', 'profesor', 'semestre','creditos', 'email', 'editar', 'eliminar' ];
   
   dataSource: Cursos[]= [];
+  body: any = {};
+  estudianteForm!: FormGroup;
+  estudianteString: any;
+  estudiante: any;
 
   constructor(){}
 
@@ -23,11 +28,20 @@ export class CursosComponent {
 
   }
   
-  botonEditar(id:number){   
+  botonEditar(){   
+    this.body['id'] = String(this.estudiante.id);
+    for (let nombreControl in this.estudianteForm.controls){
+      let control = this.estudianteForm.get(nombreControl);
+      if(control?.dirty){
+        this.body[nombreControl] = nombreControl === 'nombre' || nombreControl === 'apellido' ? (this.estudianteForm.get(nombreControl)?.value).trim().toUpperCase() : this.estudianteForm.get(nombreControl)?.value;
+     }else {
+      this.body[nombreControl] = this.estudiante[nombreControl];
+    }
+
 
   
   
-  }
+    }}
   
    
   @ViewChild(MatTable) Tabla2!: MatTable<Cursos>;

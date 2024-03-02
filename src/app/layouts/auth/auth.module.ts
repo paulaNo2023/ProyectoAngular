@@ -26,7 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   exports:[
-    MatToolbarModule, MatCardModule, MatButtonModule, MatIconModule
+    MatToolbarModule, MatCardModule, MatButtonModule, MatIconModule, LoginComponent
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

@@ -9,15 +9,18 @@ import { AuthService } from '../auth/services/auth.service';
 })
 export class LoginComponent {
   loginForm: FormGroup;
-
+  login: boolean = false
+ 
   revealPassword = false;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private auth: AuthService) {
     this.loginForm = this.fb.group({
       email: this.fb.control('', [Validators.required, Validators.email]),
       password: this.fb.control('', [Validators.required]),
     });
   }
+
+ 
 
   onSubmit(): void {
     if (this.loginForm.invalid) {
@@ -26,4 +29,5 @@ export class LoginComponent {
       this.authService.login(this.loginForm.value).subscribe();
     }
   }
+  
 }
