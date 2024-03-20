@@ -6,6 +6,8 @@ import { AlertsService } from '../../../core/services/alerts.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../../../environment/environment';
 import { LoadingServiceService } from '../../../core/services/loading-service';
+import { AuthActions } from '../../../store/auth/actions';
+import { Store } from '@ngrx/store';
 
 
 interface LoginData {
@@ -14,16 +16,17 @@ interface LoginData {
 }
 
 const MOCK_USER = {
-  id: 48,
-  email: 'test@mail.com',
-  firstName: 'FAKENAME',
-  lastName: 'FAKELASTNAME',
+  id: 26,
+  email: 'pau@gma.com',
+  firstName: 'PAULA',
+  lastName: 'SANABRIA',
   password: '123456',
   role: 'ADMIN',
 };
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+  [x: string]: any;
   authUser: Users | null = null;
   private usuarioLoggeado: boolean;
 
@@ -40,8 +43,9 @@ export class AuthService {
  
 
   private setAuthUser(user: Users): void {
-    this.authUser = user;
+    this['store'].dispatch(AuthActions.setAuthUser({ user }));
     localStorage.setItem('token', user.token);
+
   }
   desloggear() {
     sessionStorage.clear();
@@ -70,7 +74,7 @@ export class AuthService {
   }
 
   logout(): void {
-    this.authUser = null;
+    this['store'].dispatch(AuthActions.logout());
     this.router.navigate(['auth', 'login']);
     localStorage.removeItem('token');
     
